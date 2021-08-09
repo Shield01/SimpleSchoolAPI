@@ -58,32 +58,10 @@ namespace SimpleSchoolAPI.Controllers
         //The POST Handler
         // POST api/<ClassroomsController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post(Classroom  value)
         {
-
-            //Trying to create a method that will take arguments and pass it to the Db, but didn't get it....Would just comment it out and do it later
-
-
-            //static Classroom newClass(int Id, string ClassName, string ClassTeacher, int NumbersOfStudent)
-            //{
-            //    object[] theClass = { Id, ClassName, ClassTeacher, NumbersOfStudent };
-            //    return theClass;
-            //}
-
-
-
-
-            //create an object of Classroom with all its properties
-            Classroom newClass = new Classroom
-            {
-                Id = 1,
-                ClassName = "Basic 1",
-                ClassTeacher = "Nigerian Man",
-                NumbersOfStudents = 568
-            };
-
             //Add the object to the db
-            Db.Classrooms.Add(newClass);
+            Db.Classrooms.Add(value);
 
             //save the changes made to the database
             Db.SaveChanges();

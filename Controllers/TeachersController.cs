@@ -55,25 +55,10 @@ namespace SimpleSchoolAPI.Controllers
         //the Post handler, this adds an object to the database
         // POST api/<TeachersController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post(Teacher value)
         {
-            //create an object of the teacher class
-            //Teacher FirstTeacher = new Teacher
-            Teacher teacher = new Teacher
-            {
-                //assign the properties to the new object
-                Id = 01,
-                TeachersLastName = "Lamido",
-                TeachersFirstName = "Sanusi",
-                TeachersQualification = "B.sc",
-                MaritalStatus = "Single",
-                Salary = "40,000", 
-            };
-
-            
-
             //add the new object to the database
-            Db.Teachers.Add(teacher);
+            Db.Add(value);
 
             //save the changes made to the database;
             Db.SaveChanges();

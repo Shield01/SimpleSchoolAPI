@@ -53,23 +53,9 @@ namespace SimpleSchoolAPI.Controllers
 
         // POST api/<StudentsController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post(Student value)
         {
-
-            //create an object of Student with all its properties
-            Student NewStudent = new Student
-            {
-                Id = 01,
-                StudentFirstName = "Victor",
-                StudentLastName = "Obasi",
-                Gender = "Male",
-                Height = "6'9",
-                Age = 16
-
-            };
-
-            //Add the object to the db
-            Db.Students.Add(NewStudent);
+            Db.Students.Add(value);
 
             //save the changes made to the database
             Db.SaveChanges();
